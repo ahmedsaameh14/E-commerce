@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
+  <title>E-Commerce Website</title>
+</head>
+<body>
+
+<header>
+  <h1>E-Commerce Store</h1>
+</header>
+
+<section class="filters">
+  <input type="text" placeholder="Search...">
+
+  <select>
+    <option value="all">All Categories</option>
+    <option value="men">Men's Clothing</option>
+    <option value="jewelry">Jewelry</option>
+    <option value="electronics">Electronics</option>
+    <option value="women">Women's Clothing</option>
+  </select>
+
+  <select>
+    <option value="name">Sort by Name</option>
+    <option value="price">Sort by Price</option>
+    <option value="rate">Sort by Rate</option>
+  </select>
+
+  <input type="number" placeholder="Min Price">
+  <input type="number" placeholder="Max Price">
+
+  <button>Filter</button>
+</section>
+
+<!-- Cart Section -->
+<section class="cart">
+  <h2>Cart</h2>
+  <p>Total Quantity: <span id="total-qty">0</span></p>
+  <p>Total Price: $<span id="total-price">0.00</span></p>
+  <div class="cart-items">
+    <h3>Items:</h3>
+    <ul id="cart-list">
+      <!-- Cart items go here -->
+    </ul>
+  </div>
+</section>
+
+<!-- Product Section -->
+<div class="products" id="products">
+  <div class="product-card">
+    <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="Product Image">
+    <h3>Product Name</h3>
+    <p>Price: $99.99</p>
+    <p>Rating: ★★★★☆</p>
+    <button>Add to Cart</button>
+    <button>More Details</button>
+  </div>
+  <!-- More product cards can go here -->
+</div>
+<script src="script.js"></script>
+</body>
+</html>
