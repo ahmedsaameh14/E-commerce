@@ -13,7 +13,7 @@
 </header>
 
 <section class="filters">
-  <input type="text" placeholder="Search...">
+  <input type="text" placeholder="Search..." id="searchInput">
 
   <select>
     <option value="all">All Categories</option>
@@ -36,17 +36,17 @@
 </section>
 
 <!-- Cart Section -->
-<section class="cart">
+<div class="cart" id="cart">
   <h2>Cart</h2>
-  <p>Total Quantity: <span id="total-qty">0</span></p>
-  <p>Total Price: $<span id="total-price">0.00</span></p>
+    <div id="totalQuantity">Total Quantity : 0</div>
+    <div id="totalPrice">Total Price : $0</div>
   <div class="cart-items">
     <h3>Items:</h3>
     <ul id="cart-list">
       <!-- Cart items go here -->
     </ul>
   </div>
-</section>
+</div>
 
 <!-- Product Section -->
 <div class="products" id="products">
