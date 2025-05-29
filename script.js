@@ -12,12 +12,7 @@ async function getProducts() {
     // INIT
     const productsDiv = document.getElementById("products");
     const cartDiv = document.getElementById("cart");
-    const totalPriceDiv = document.getElementById("totalPrice");
-    const totalQuantityDiv = document.getElementById("totalQuantity");
-
-
-
-
+    
     // const searchInput = document.getElementById("searchInput");
 
     // Added products to web page
@@ -37,36 +32,45 @@ async function getProducts() {
     });
 
     // Add to Cart
-      window.addToCart =function(index) {
+    window.addToCart = function (index) {
       const productInCart = products[index];
       cart.push(productInCart);
       totalPrice += productInCart.price;
       totalQuantity = cart.length;
       updateCart();
-    }
+    };
 
-    // Update Cart 
+    // Update Cart
     function updateCart() {
       cartDiv.innerHTML = `
-      <h2>Cart</h2>
-      <div id="totalQuantity">Total Quantity : ${totalQuantity}</div>
-      <div id="totalPrice">Total Price : $${totalPrice}</div>`;
-      cart.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'cart-item';
+        <h2>Cart</h2>
+        <div id="totalQuantity">Total Quantity : ${totalQuantity}</div>
+        <div id="totalPrice">Total Price : $${totalPrice.toFixed(2)}</div>
+      `;
+
+      cart.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "cart-products";
         div.innerHTML = `
-          
+          <img src="${item.image}" alt="${item.title}">
           <p>${item.title}</p>
           <p>$${item.price}</p>
+          <button onclick="removeProduct(${index})">Remove</button>
         `;
         cartDiv.appendChild(div);
       });
-
-      totalPriceDiv.textContent = `Total Price: $${totalPrice}`;
-      totalQuantityDiv.textContent = `Total Quantity : ${totalQuantity}`;
     }
 
+    // CHAT GPT RECODING !!!!!!!!
+    // Remove from Cart
+    window.removeProduct = function (index) {
+      totalPrice -= cart[index].price;
+      cart.splice(index, 1);
+      totalQuantity = cart.length;
+      updateCart();
+    };
 
+    
   } catch (error) {
     console.error("Error fetching user:", error);
   }
