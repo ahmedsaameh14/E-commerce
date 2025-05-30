@@ -1,144 +1,222 @@
-    * {
-      box-sizing: border-box;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    header, .filters, .cart, .products {
-      width: 100%;
-      max-width: 1200px;
-      padding: 20px;
-      margin: 10px auto;
-    }
+header,
+.filters,
+.cart,
+.products {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  margin: 10px auto;
+}
 
-    header {
-      background-color: #333;
-      color: white;
-      text-align: center;
-    }
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
 
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      background: #f4f4f4;
-      border-radius: 5px;
-      justify-content: center;
-    }
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #f4f4f4;
+  border-radius: 5px;
+  justify-content: center;
+}
 
-    .filters input, .filters select, .filters button {
-      padding: 8px;
-      flex: 1 1 150px;
-      max-width: 200px;
-    }
+.filters input,
+.filters select,
+.filters button {
+  padding: 8px;
+  flex: 1 1 150px;
+  max-width: 200px;
+}
 
-    .cart {
-      background-color: #e8e8e8;
-      padding: 15px;
-      border-radius: 5px;
-      text-align: center;
-      justify-items: center;
-    }
-    .cart div {
-      margin-bottom: 20px;
-    }
+.cart {
+  background-color: #e8e8e8;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  justify-items: center;
+}
+.cart div {
+  margin-bottom: 20px;
+}
 
-    .cart img{
-      width: 100px;
-      height: 100px;
-    }
+.cart img {
+  width: 100px;
+  height: 100px;
+}
 
-    .cart-products {
-      margin: 10px;
-      background: rgb(175, 173, 173);
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      width: 50%;
-      text-align: center;
-    }
+.cart-products {
+  margin: 10px;
+  background: rgb(175, 173, 173);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  text-align: center;
+}
 
-    .cart-products button {
-      width: 150px;
-      height: 30px;
-      cursor: pointer;
-    }
-    
-    .cart-products button:hover {
-      background-color: rgb(230, 31, 31);
-      color: white;
-    }
+.cart-products button {
+  width: 150px;
+  height: 30px;
+  cursor: pointer;
+}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
-      justify-content: center;
-    }
+.cart-products button:hover {
+  background-color: rgb(230, 31, 31);
+  color: white;
+}
 
-    .product-card {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 10px;
-      text-align: center;
-      background-color: white;
-    }
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
 
-    .product-card img {
-      width: 200px;
-      height: 200px;
-    }
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+}
 
-    .product-card p {
-      font-weight: bold;
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    .product-card h3 {
-      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    }
+.product-card img {
+  width: 200px;
+  height: 200px;
+}
 
-    .title
-    {
-        width: 100%;
-        height: 150px;
-    }
+.product-card p {
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    .product-card button {
-      width: 150px;
-      height: 30px;
-      font-size: 16px;
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 5px;
-      cursor: pointer;
-    }
+.product-card h3 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
 
-    .product-card button:hover{
-        background-color: green;
-        color: white;
-    }
+.title {
+  width: 100%;
+  height: 150px;
+}
 
-    
+.product-card button {
+  width: 150px;
+  height: 30px;
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 5px;
+  cursor: pointer;
+}
 
-    @media (max-width: 768px) {
-      .filters {
-        flex-direction: column;
-        align-items: center;
-      }
+.product-card button:hover {
+  background-color: green;
+  color: white;
+}
 
-      .filters input, .filters select, .filters button {
-        width: 100%;
-        max-width: none;
-      }
+/* More Details Section */
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  text-align: center;
+  position: relative;
+  animation: popupFade 0.3s ease-in-out;
+}
 
-      .products {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      }
-    }
+.popup-content img {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+#popUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+#dropback {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+#dropback {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#popUp.active,
+#dropback.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@keyframes popupFade {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filters input,
+  .filters select,
+  .filters button {
+    width: 100%;
+    max-width: none;
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

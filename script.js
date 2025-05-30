@@ -12,8 +12,8 @@ async function getProducts() {
     // INIT
     const productsDiv = document.getElementById("products");
     const cartDiv = document.getElementById("cart");
-    
-    // const searchInput = document.getElementById("searchInput");
+    const popUpPage = document.getElementById("popUp");
+    const dropback = document.getElementById("dropback");
 
     // Added products to web page
     products.forEach((product, index) => {
@@ -47,7 +47,6 @@ async function getProducts() {
         <div id="totalQuantity">Total Quantity : ${totalQuantity}</div>
         <div id="totalPrice">Total Price : $${totalPrice.toFixed(2)}</div>
       `;
-
       cart.forEach((item, index) => {
         const div = document.createElement("div");
         div.className = "cart-products";
@@ -61,7 +60,6 @@ async function getProducts() {
       });
     }
 
-    // CHAT GPT RECODING !!!!!!!!
     // Remove from Cart
     window.removeProduct = function (index) {
       totalPrice -= cart[index].price;
@@ -70,7 +68,35 @@ async function getProducts() {
       updateCart();
     };
 
-    
+    // More Details Popup
+    window.moreDetails = function (index) {
+      const product = products[index];
+      popUpPage.innerHTML = `
+      <div class="popup-content">
+      <span class="close-btn" id="closePopup">&times;</span>
+      <img src="${product.image}" alt="${product.title}">
+      <h2>${product.title}</h2>
+      <p><strong>Category:</strong> ${product.category}</p>
+      <p><strong>Description:</strong> ${product.description}</p>
+      <p><strong>Price:</strong> $${product.price}</p>
+      <p><strong>Rating:</strong> ${product.rating.rate} ⭐</p>
+      </div>
+      `;
+      // Show popup
+      popUpPage.classList.add("active");
+      dropback.classList.add("active");
+      // Add close logic
+      document.getElementById("closePopup").onclick = () => {
+        popUpPage.classList.remove("active");
+        dropback.classList.remove("active");
+      };
+    };
+    // Close if user clicks outside popup
+    dropback.addEventListener("click", () => {
+      popUpPage.classList.remove("active");
+      dropback.classList.remove("active");
+    });
+
   } catch (error) {
     console.error("Error fetching user:", error);
   }
