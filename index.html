@@ -11,27 +11,29 @@
       <h1>E-Commerce Store</h1>
     </header>
 
+    <!-- Searching and Sorting -->
     <section class="filters">
       <input type="text" placeholder="Search..." id="searchInput" />
 
-      <select>
-        <option value="all">All Categories</option>
-        <option value="men">Men's Clothing</option>
-        <option value="jewelry">Jewelry</option>
+      <select id="selectCategory">
+        <option value="all">All</option>
+        <option value="men's clothing">Men's clothing</option>
+        <option value="women's clothing">Women's clothing</option>
+        <option value="jewelery">Jewelery</option>
         <option value="electronics">Electronics</option>
-        <option value="women">Women's Clothing</option>
       </select>
 
-      <select>
-        <option value="name">Sort by Name</option>
-        <option value="price">Sort by Price</option>
-        <option value="rate">Sort by Rate</option>
+      <select id="selectSort">
+        <option value="">Sort by</option>
+        <option value="name">Name (A-Z)</option>
+        <option value="price">Price (Low to High)</option>
+        <option value="rating">Rating (High to Low)</option>
       </select>
 
-      <input type="number" placeholder="Min Price" />
-      <input type="number" placeholder="Max Price" />
+      <input type="number" id="minPrice" placeholder="Min Price" />
+      <input type="number" id="maxPrice" placeholder="Max Price" />
 
-      <button>Filter</button>
+      <button id="filter">Filter</button>
     </section>
 
     <!-- Cart Section -->
@@ -42,9 +44,7 @@
     </div>
 
     <!-- Product Section -->
-    <div class="products" id="products">
-      <!-- More product cards can go here -->
-    </div>
+    <div class="products" id="products"></div>
 
     <!-- More Details  -->
     <div id="dropback"></div>

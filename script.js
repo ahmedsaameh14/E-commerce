@@ -14,6 +14,12 @@ async function getProducts() {
     const cartDiv = document.getElementById("cart");
     const popUpPage = document.getElementById("popUp");
     const dropback = document.getElementById("dropback");
+    const searchBar = document.getElementById("searchInput");
+    const categoryBar = document.getElementById("selectCategory");
+    const sortBar = document.getElementById("selectSort");
+    const filterBtn = document.getElementById("filter");
+    const minPriceBar = document.getElementById("minPrice");
+    const maxPriceBar = document.getElementById("maxPrice");
 
     // Added products to web page
     products.forEach((product, index) => {
@@ -23,8 +29,7 @@ async function getProducts() {
         <img src="${product.image}" alt="${product.title}">
         <div class="title"> <h3>${product.title}</h3> </div>
         <p>$ ${product.price}</p>
-        <p>Rate: ${product.rating.rate}⭐</p>
-        <p>Count: ${product.rating.count}</p>
+        <p>Rate: ${product.rating.rate}⭐ (${product.rating.count})</p>
         <button onclick="addToCart(${index})">Add to Cart</button>
         <button onclick="moreDetails(${index})">More Details</button>
       `;
@@ -96,6 +101,60 @@ async function getProducts() {
       popUpPage.classList.remove("active");
       dropback.classList.remove("active");
     });
+
+    // Sort products based on selected criteria
+    function sortProducts(products, criteria) {
+      const sortArr = [...products];
+
+      switch (criteria) {
+        case "name":
+          sortArr.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        case "price":
+          sortArr.sort((a, b) => a.price - b.price);
+          break;
+        case "rating":
+          sortArr.sort((a, b) => b.rating.rate - a.rating.rate);
+          break;
+      }
+
+      return sortArr;
+    }
+
+    // Filtering
+    filterBtn.addEventListener('click', () => {
+      const searchValue = searchBar.value.toLowerCase();
+      const categoryValue = categoryBar.value;
+      const sortBy = sortBar.value;
+      const minPrice = parseFloat(minPriceBar.value);
+      const maxPrice = parseFloat(maxPriceBar.value);
+
+      const filter = products.filter(product => {
+        const matchSearch = product.title.toLowerCase().includes(searchValue);
+        const matchCategory = categoryValue === "all" || product.category === categoryValue;
+        const matchMin = isNaN(minPrice) || product.price >= minPrice;
+        const matchMax = isNaN(maxPrice) || product.price <= maxPrice;
+        return matchSearch && matchCategory && matchMin && matchMax;
+      });
+      const sorted = sortProducts(filter, sortBy);
+
+      productsDiv.innerHTML = '';
+      sorted.forEach(product => {
+        const div = document.createElement("div");
+        div.className = "product-card";
+        div.innerHTML = `
+        <img src="${product.image}" alt="${product.title}">
+        <div class="title"> <h3>${product.title}</h3> </div>
+        <p>$ ${product.price}</p>
+        <p>Rate: ${product.rating.rate}⭐ (${product.rating.count})</p>
+        <button onclick="addToCart(${products.indexOf(product)})">Add to Cart</button>
+        <button onclick="moreDetails(${products.indexOf(product)})">More Details</button>
+      `;
+        productsDiv.appendChild(div);
+      });
+    });
+
+
 
   } catch (error) {
     console.error("Error fetching user:", error);

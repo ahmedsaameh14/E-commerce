@@ -44,6 +44,10 @@ header {
   max-width: 200px;
 }
 
+.filters button {
+  cursor: pointer;
+}
+
 .cart {
   background-color: #e8e8e8;
   padding: 15px;
